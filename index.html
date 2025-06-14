@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expense Tracker Fixed Categories</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Expense Tracker</h1>
+
+    <div id="authSection">
+      <input type="password" id="passwordInput" placeholder="Enter Password" />
+      <button onclick="authenticate()">🔐 Unlock</button>
+    </div>
+
+    <div id="mainApp" style="display: none;">
+      <div class="top-controls">
+        <input type="number" id="salaryInput" placeholder="Enter Monthly Budget" />
+        <button onclick="setSalary()">💾 Set Budget</button>
+        <button onclick="resetSalary()">🔁 Reset Budget</button>
+        <button onclick="logout()">🔒 Logout</button>
+        <button onclick="toggleDarkMode()">🌓 Mode</button>
+        <div id="feedbackMessage"></div>
+      </div>
+
+      <div class="date-section">
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInput" />
+      </div>
+
+      <div id="expenseFields" class="expense-fixed">
+        <div class="expense-group">
+          <label>Food:</label>
+          <input type="number" min="0" class="expenseInput" data-category="Food" placeholder="Amount" />
+        </div>
+        <div class="expense-group">
+          <label>Shopping:</label>
+          <input type="number" min="0" class="expenseInput" data-category="Shopping" placeholder="Amount" />
+        </div>
+        <div class="expense-group">
+          <label>Bills:</label>
+          <input type="number" min="0" class="expenseInput" data-category="Bills" placeholder="Amount" />
+        </div>
+        <div class="expense-group">
+          <label>Transport:</label>
+          <input type="number" min="0" class="expenseInput" data-category="Transport" placeholder="Amount" />
+        </div>
+        <div class="expense-group">
+          <label>Other:</label>
+          <input type="number" min="0" class="expenseInput" data-category="Other" placeholder="Amount" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button onclick="addDailyExpense()">📥 Add Expenses</button>
+        <button onclick="downloadCSV()">⬇ Download All</button>
+        <button onclick="clearHistory()">🗑️ Clear History</button>
+      </div>
+
+      <div id="balanceDisplay">Remaining Balance: ৳0</div>
+
+      <canvas id="expenseChart" height="250"></canvas>
+      <div id="historyContainer"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
